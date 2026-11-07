@@ -12,7 +12,7 @@ When a maintainer publishes a security advisory in their GitHub repository, Depe
 **Limbowatch** measures that gap in the open, and closes it in your CI.
 
 - 🌐 **[limbo.watch](https://limbo.watch)**: the live tracker. Every advisory in limbo across about 18,600 watched repos, re-checked daily.
-- 🔎 **[Scan your project](https://limbo.watch/scan/)**: `limbowatch scan` checks your lockfiles against every advisory in limbo and reports in GitLab merge requests, GitHub pull requests and Gitea/Forgejo issues. On a demo app it found 16 advisories that OSV-Scanner reported none of ([see the pull request](https://github.com/limbowatch/demo-app/pull/1)).
+- 🔎 **[Scan your project](https://limbo.watch/scan/)**: `limbowatch scan` checks your lockfiles against every advisory in limbo and reports in GitLab merge requests, GitHub pull requests and Gitea/Forgejo issues. On a demo app it found 16 advisories that neither OSV-Scanner nor Dependabot reported ([see the pull request](https://github.com/limbowatch/demo-app/pull/1)).
 - 📦 **[The limbo feed](https://limbo.watch/feed/)**: every advisory in limbo as OSV records, rebuilt daily. The released OSV-Scanner can scan against it today.
 - 📊 **[State of the Gap, October 2026](https://github.com/limbowatch/limbowatch/tree/main/research/2026-10-state-of-the-gap)**: 1 in 6 upstream advisories of 15 popular projects was in limbo; 13 of 14 projects shipped affected versions their scanner reported as clean.
 
