@@ -5,17 +5,39 @@
   </picture>
 </p>
 
-<p align="center"><b>Published. Not reviewed. Not scanned. In limbo.</b></p>
+<p align="center"><b>Security advisories your scanner can't see yet.</b></p>
 
-When a maintainer publishes a security advisory in their GitHub repository, Dependabot, npm audit, OSV-Scanner and most dependency scanners can't see it until GitHub reviews it into the global Advisory Database. That takes weeks. Until then, the advisory is **in limbo**: public, usually already fixed, and invisible to the tools teams rely on.
+When maintainers publish a security advisory in their GitHub repository, it doesn't reach the GitHub Advisory Database or OSV until GitHub reviews it. Dependabot, npm audit, OSV-Scanner and most dependency scanners read those databases, so they stay silent in the meantime, often for weeks. The advisory is public and usually already fixed, but it's **in limbo**.
 
-**Limbowatch** measures that gap in the open, and closes it in your CI.
+Limbowatch measures that gap in the open and closes it in CI.
 
-- 🌐 **[limbo.watch](https://limbo.watch)**: the live tracker. Every advisory in limbo across about 18,600 watched repos, re-checked daily.
-- 🔎 **[Scan your project](https://limbo.watch/scan/)**: `limbowatch scan` checks your lockfiles against every advisory in limbo and reports in GitLab merge requests, GitHub pull requests and Gitea/Forgejo issues. On a demo app it found 16 advisories that neither OSV-Scanner nor Dependabot reported ([see the pull request](https://github.com/limbowatch/demo-app/pull/1)).
-- 📦 **[The limbo feed](https://limbo.watch/feed/)**: every advisory in limbo as OSV records, rebuilt daily. The released OSV-Scanner can scan against it today.
-- 📊 **[State of the Gap, October 2026](https://github.com/limbowatch/limbowatch/tree/main/research/2026-10-state-of-the-gap)**: 1 in 6 upstream advisories of 15 popular projects was in limbo; 13 of 14 projects shipped affected versions their scanner reported as clean.
+### Projects
 
-Source: [limbowatch/limbowatch](https://github.com/limbowatch/limbowatch) · GitLab CI/CD component: [gitlab.com/limbowatch/limbowatch-component](https://gitlab.com/limbowatch/limbowatch-component)
+| | |
+|---|---|
+| **[Live tracker](https://limbo.watch)** | Every advisory in limbo across more than 44,000 watched upstream repositories, with how long each has waited and whether it has a CVE. Updated daily. |
+| **[Watcher](https://limbo.watch/scan/)** | `limbowatch scan` checks a project's lockfiles or SBOM against advisories in limbo. Reports in GitLab merge requests, GitHub pull requests and Gitea or Forgejo issues, in ten formats including SARIF and CycloneDX. |
+| **[Limbo feed](https://limbo.watch/feed/)** | Every advisory in limbo as OSV records, rebuilt daily. OSV-Scanner can scan against it today. |
+| **[State of the Gap](https://github.com/limbowatch/limbowatch/tree/main/research/2026-10-state-of-the-gap)** | October 2026 research. About 1 in 6 upstream advisories of 15 popular projects was in limbo, and 13 of 14 projects shipped affected versions their scanner reported as clean. |
 
-Open source (Apache-2.0); research data and the feed are CC BY 4.0.
+### Get started
+
+```yaml
+# GitLab CI/CD
+include:
+  - component: $CI_SERVER_FQDN/limbowatch/limbowatch-component/limbowatch@0.1.0-alpha.2
+```
+
+```sh
+# Anywhere else
+docker run --rm -v "$PWD:/src" ghcr.io/limbowatch/limbowatch:0.1.0a2 limbowatch scan .
+pipx install limbowatch-cli==0.1.0a2
+```
+
+Also available as a [GitHub Action](https://github.com/limbowatch/limbowatch/tree/main/integrations/action) for GitHub, Gitea and Forgejo. Releases are alphas: options and formats may change before 0.1.0.
+
+### Links
+
+[Source](https://github.com/limbowatch/limbowatch) · [Documentation](https://github.com/limbowatch/limbowatch/blob/main/docs/WATCHER.md) · [Methodology](https://limbo.watch/methodology/) · [GitLab CI/CD Catalog](https://gitlab.com/explore/catalog/limbowatch/limbowatch-component) · [PyPI](https://pypi.org/project/limbowatch-cli/) · [Security policy](https://github.com/limbowatch/limbowatch/blob/main/SECURITY.md) · [Press](https://limbo.watch/press/)
+
+Open source under Apache-2.0. Research data and the feed are CC BY 4.0. Advisory data comes from GitHub repository security advisories and the GitHub Advisory Database (CC BY 4.0).
