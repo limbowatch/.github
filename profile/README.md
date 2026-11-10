@@ -25,13 +25,13 @@ Limbowatch measures that gap in the open and closes it in CI.
 ```yaml
 # GitLab CI/CD
 include:
-  - component: $CI_SERVER_FQDN/limbowatch/limbowatch-component/limbowatch@0.1.0-alpha.4
+  - component: $CI_SERVER_FQDN/limbowatch/limbowatch-component/limbowatch@0.1.0-alpha.5
 ```
 
 ```sh
 # Anywhere else
-docker run --rm -v "$PWD:/src" ghcr.io/limbowatch/limbowatch:0.1.0a4 limbowatch scan .
-pipx install limbowatch-cli==0.1.0a4
+docker run --rm -v "$PWD:/src" ghcr.io/limbowatch/limbowatch:0.1.0a5 limbowatch scan .
+pipx install limbowatch-cli==0.1.0a5
 ```
 
 Also available as a [GitHub Action](https://github.com/limbowatch/limbowatch/tree/main/integrations/action) for GitHub, Gitea and Forgejo. Releases are alphas: options and formats may change before 0.1.0.
