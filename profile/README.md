@@ -11,6 +11,8 @@ When maintainers publish a security advisory in their GitHub repository, it does
 
 Limbowatch measures that gap in the open and closes it in CI.
 
+<a href="https://limbo.watch"><img src="assets/home.png" width="820" alt="The limbo.watch home page on 2026-11-15: Dependabot, OSV-Scanner, npm audit and pip-audit report 0 of 260 high and critical advisories in limbo in the dependency files of 55 popular open-source projects; limbowatch scan reports all 260, with the upgrade that clears each one."></a>
+
 ### Projects
 
 | | |
